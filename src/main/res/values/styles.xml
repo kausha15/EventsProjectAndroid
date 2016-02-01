@@ -5,4 +5,46 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="DiscoverButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:textColor">@color/greyDiff</item>
+        <item name="android:text">@string/discover_text</item>
+        <item name="android:background">@drawable/element_selector</item>
+    </style>
+
+    <style name="disover_title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:text">discover festivals</item>
+    </style>
+
+    <style name="discover_tag">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:text">Discover amazing events, cities and countries with great music</item>
+    </style>
+
+    <style name="discoverLL">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+
 </resources>
