@@ -59,3 +59,4 @@ public class WelcomeFragment extends Fragment {
     }
 
 }
+//android:background="#fdedc7"
