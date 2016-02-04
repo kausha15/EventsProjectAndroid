@@ -1,0 +1,105 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.project.event.fragments.SingleEventFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        android:weightSum="1">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.4"
+            android:src="@drawable/event_sample"
+            android:id="@+id/ivEventImage"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.6"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    style="@style/single_event_text"
+                    android:text="Event : "
+                    android:textStyle="bold"
+                    android:id="@+id/tvNameLabel"/>
+
+                <TextView
+                    style="@style/single_event_text"
+                    android:text="Christmas Celebration"
+                    android:id="@+id/tvNameValue"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    style="@style/single_event_text"
+                    android:textStyle="bold"
+                    android:text="Venue : "
+                    android:id="@+id/tvVenueLabel"/>
+
+                <TextView
+                    style="@style/single_event_text"
+                    android:text="Mumbai"
+                    android:id="@+id/tvVenueValue"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    style="@style/single_event_text"
+                    android:textStyle="bold"
+                    android:text="Schedule : "
+                    android:id="@+id/tvScheduleLabel"/>
+
+                <TextView
+                    style="@style/single_event_text"
+                    android:text="1st Jan 2016 - 2nd Feb 2016"
+                    android:id="@+id/tvScheduleValue"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    style="@style/single_event_text"
+                    android:text="Cost : "
+                    android:textStyle="bold"
+                    android:id="@+id/tvCostLabel"/>
+
+                <TextView
+                    style="@style/single_event_text"
+                    android:text="0"
+                    android:id="@+id/tvCostValue"/>
+            </LinearLayout>
+
+        </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnInterested"
+            android:text="I am interested"
+            android:background="@drawable/element_selector"
+            android:layout_gravity="bottom"/>
+
+    </LinearLayout>
+
+
+
+</FrameLayout>

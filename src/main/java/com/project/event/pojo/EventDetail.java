@@ -16,6 +16,18 @@ public class EventDetail {
     @SerializedName("event_image")
     private String imageUrl;
 
+    @SerializedName("event_venue")
+    private String venue;
+
+    @SerializedName("event_schedule_start")
+    private String start;
+
+    @SerializedName("event_schedule_end")
+    private String end;
+
+    @SerializedName("event_cost")
+    private String cost;
+
     public String getId() {
         return id;
     }
@@ -38,5 +50,37 @@ public class EventDetail {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getVenue() {
+        return venue;
+    }
+
+    public void setVenue(String venue) {
+        this.venue = venue;
+    }
+
+    public String getStart() {
+        return start;
+    }
+
+    public void setStart(String start) {
+        this.start = start;
+    }
+
+    public String getEnd() {
+        return end;
+    }
+
+    public void setEnd(String end) {
+        this.end = end;
+    }
+
+    public String getCost() {
+        return cost;
+    }
+
+    public void setCost(String cost) {
+        this.cost = cost;
     }
 }

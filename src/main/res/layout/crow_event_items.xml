@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="5dp"
+    android:id="@+id/cvEvent"
+    android:background="@color/white"
+    android:layout_margin="10dp">
 
-</CardView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_weight="0.6"
+            android:layout_height="0dp"
+            android:src="@drawable/event_sample"
+            android:alpha="0.4"
+            android:id="@+id/ivEventImage"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvEventName"
+            android:text="Event"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_margin="5dp"
+            android:gravity="center_horizontal"/>
+
+
+    </LinearLayout>
+
+
+
+</android.support.v7.widget.CardView>

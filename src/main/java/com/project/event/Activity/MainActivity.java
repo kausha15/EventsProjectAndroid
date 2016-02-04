@@ -31,7 +31,8 @@ public class MainActivity extends ActionBarActivity {
 
     public static final int POST = 1;
     public static final int GET = 2;
-    public static String HOST_URL = "https://apartmentadda.com/api";
+    public static String HOST_URL = "http://192.168.0.103/api";
+    public static final String EVENT_OBJECT = "event_object";
 
     public ArrayList<EventDetail> eventDetailArrayList = new ArrayList<EventDetail>();
 
