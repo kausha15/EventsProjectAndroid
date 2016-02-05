@@ -2,30 +2,32 @@ package com.project.event.pojo;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Created by kausha on 2/2/16.
  */
-public class EventDetail {
+public class EventDetail implements Serializable {
 
     @SerializedName("event_id")
     private String id;
 
-    @SerializedName("event_name")
+    @SerializedName("name")
     private String name;
 
-    @SerializedName("event_image")
+    @SerializedName("image_url")
     private String imageUrl;
 
-    @SerializedName("event_venue")
+    @SerializedName("venue")
     private String venue;
 
-    @SerializedName("event_schedule_start")
+    @SerializedName("start")
     private String start;
 
-    @SerializedName("event_schedule_end")
+    @SerializedName("end")
     private String end;
 
-    @SerializedName("event_cost")
+    @SerializedName("Fees")
     private String cost;
 
     public String getId() {

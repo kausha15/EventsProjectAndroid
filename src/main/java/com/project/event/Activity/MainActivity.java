@@ -2,36 +2,26 @@ package com.project.event.Activity;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
-import com.google.gson.Gson;
 import com.project.event.R;
-import com.project.event.UtilityFunctions.Logger;
-import com.project.event.UtilityFunctions.Utilities;
 import com.project.event.fragments.WelcomeFragment;
 import com.project.event.pojo.EventDetail;
 
-import org.apache.http.NameValuePair;
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.List;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ContextActivity {
 
     private FrameLayout flFragment;
 
     public static final int POST = 1;
     public static final int GET = 2;
-    public static String HOST_URL = "http://192.168.0.103/api";
+    public static String HOST_URL = "http://192.168.1.48/api";
     public static final String EVENT_OBJECT = "event_object";
 
     public ArrayList<EventDetail> eventDetailArrayList = new ArrayList<EventDetail>();
@@ -43,14 +33,17 @@ public class MainActivity extends ActionBarActivity {
 
         flFragment = (FrameLayout) findViewById(R.id.flFragment);
 
-        getSupportActionBar().setTitle("Connect");
+
         ColorDrawable colorDrawable = new ColorDrawable(getResources().getColor(R.color.action_bar_color));
         getSupportActionBar().setBackgroundDrawable(colorDrawable);
+        getSupportActionBar().setTitle("Connect");
+//        setCustomView("Custom",R.color.action_bar_color,R.color.black);
 
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         WelcomeFragment welcomeFragment = new WelcomeFragment();
         fragmentTransaction.add(R.id.flFragment, welcomeFragment);
+        fragmentTransaction.addToBackStack("1");
         fragmentTransaction.commit();
 
     }
@@ -78,34 +71,6 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void getAllEvents(Context context){
-        if(Utilities.isNetworkAvailable(context)){
-            Logger.log("fetch", " fetch all events ");
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
-            String response= Utilities.sendDataToServer(HOST_URL + "/fetchAllEvents", POST, params);
-            handleResponse(response);
-        }else{
-            Utilities.showNetworkNotAvailableDialog(context);
-        }
 
-    }
 
-    public void handleResponse(String response){
-        try{
-            JSONObject jsonObject = new JSONObject(response);
-            JSONArray eventList = jsonObject.getJSONObject("data").getJSONArray("event_list");
-            int eventListSize = eventList.length();
-            Logger.log("fetch"," event list size ------ "+eventListSize);
-            Gson gson = new Gson();
-            eventDetailArrayList.clear();
-
-            for(int i=0; i<eventListSize;i++){
-                EventDetail eventDetail = gson.fromJson(eventList.getJSONObject(i).toString(), EventDetail.class);
-                eventDetailArrayList.add(eventDetail);
-            }
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 }

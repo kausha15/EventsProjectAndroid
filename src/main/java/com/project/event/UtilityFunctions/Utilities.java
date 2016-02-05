@@ -73,7 +73,7 @@ public class Utilities {
 
     public static String sendDataToServer(String url, int method,
                                           List<NameValuePair> params) {
-
+        Logger.log("data"," --- IN SEND DATA TO SERVER -----");
         final int TIME_OUT_IN_SECONDS=10;
 
         InputStream is = null;

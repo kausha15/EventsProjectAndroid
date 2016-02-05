@@ -53,7 +53,7 @@ public class EventsListAdapter extends BaseAdapter {
         ViewHolder holder;
 
         final EventDetail eventDetail = getItem(position);
-        if(crow != null){
+        if(crow == null){
             crow = inflater.inflate(R.layout.crow_event_items,null,false);
             holder = new ViewHolder();
 

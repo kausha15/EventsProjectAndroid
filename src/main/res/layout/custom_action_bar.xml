@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:adda="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rlCustomActionBar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/abc_action_bar_default_height_material"
+    android:background="@color/action_bar_color">
+
+    <ImageButton
+        android:id="@+id/ivLeftImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:padding="10dp"
+        android:background="@color/transparent"
+        android:src="@drawable/back_arrow"
+         />
+
+    <TextView
+        android:id="@+id/tvPost"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_centerVertical="true"
+        android:text="POST"
+        android:textColor="#fff"
+        android:textSize="15sp"
+        android:visibility="visible"
+      />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:layout_toRightOf="@+id/ivLeftImage"
+        android:text="Upload photo to uzzarsdfgsdfg"
+        android:maxEms="9"
+        android:textAllCaps="false"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:singleLine="true"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <ImageButton
+        android:id="@+id/ivRightImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15dp"
+        android:background="@android:color/transparent"
+        android:visibility="gone" />
+
+
+
+
+
+</RelativeLayout>

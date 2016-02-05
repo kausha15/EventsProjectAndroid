@@ -39,9 +39,10 @@ public class WelcomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Logger.log("discover", " click on button ");
+//                ((MainActivity)getActivity()).getAllEvents(getActivity());
                 EventListFragment eventListFragment = new EventListFragment();
                 Logger.log("discover", " click on button ");
-                getActivity().getFragmentManager().beginTransaction().replace(R.id.flFragment, eventListFragment).addToBackStack(null).commit();
+                getActivity().getFragmentManager().beginTransaction().replace(R.id.flFragment, eventListFragment).addToBackStack("2").commit();
             }
         });
 
