@@ -7,4 +7,5 @@
     <color name="check_out_color">#e05103</color>
     <color name="action_bar_color">#FAC645</color>
     <color name="transparent">#00000000</color>
+    <color name="general_background">#adc0c7</color>
 </resources>

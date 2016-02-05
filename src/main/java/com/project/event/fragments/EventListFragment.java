@@ -118,6 +118,14 @@ public class EventListFragment extends Fragment {
 
                     }catch (Exception e){
                         e.printStackTrace();
+                        new ConfirmationWindow(getActivity(),"Failed","We could not fetch Events, Please Try Again !","Try Again","Cancel"){
+                            @Override
+                            protected void setPositiveResponse() {
+                                super.setPositiveResponse();
+                                getAllEvents(getActivity());
+                            }
+
+                        };
                     }
                     break;
                 case CALL_UNSUCCESSFUL:

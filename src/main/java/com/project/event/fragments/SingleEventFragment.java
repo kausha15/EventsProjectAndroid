@@ -10,10 +10,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.project.event.Activity.MainActivity;
 import com.project.event.R;
 import com.project.event.UtilityFunctions.Logger;
-import com.project.event.UtilityFunctions.Utilities;
 import com.project.event.pojo.EventDetail;
 
 public class SingleEventFragment extends Fragment {
@@ -32,6 +33,9 @@ public class SingleEventFragment extends Fragment {
 
     private ImageView ivEventImage;
 
+    private ImageLoader imageLoader;
+    private DisplayImageOptions options;
+
     public SingleEventFragment() {
         // Required empty public constructor
     }
@@ -44,6 +48,9 @@ public class SingleEventFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         eventDetail = getArguments() != null ? (EventDetail) getArguments().getSerializable(MainActivity.EVENT_OBJECT) : new EventDetail();
+
+        imageLoader = ImageLoader.getInstance();
+        options = new DisplayImageOptions.Builder().cacheOnDisk(true).cacheInMemory(true).showImageForEmptyUri(R.drawable.ic_launcher).showImageOnLoading(R.drawable.ic_launcher).showImageOnFail(R.drawable.ic_launcher).build();
     }
 
     @Override
@@ -67,7 +74,13 @@ public class SingleEventFragment extends Fragment {
         tvNameValue.setText(eventDetail.getName());
         tvScheduleValue.setText(eventDetail.getStart()+" - "+eventDetail.getEnd());
         tvVenueValue.setText(eventDetail.getVenue());
-        ivEventImage.setImageBitmap(Utilities.downloadBitmap(eventDetail.getImageUrl()));
+//        ivEventImage.setImageBitmap(Utilities.downloadBitmap(eventDetail.getImageUrl()));
+        if(!eventDetail.getImageUrl().equals("")){
+            imageLoader.displayImage(eventDetail.getImageUrl(),ivEventImage,options);
+        }
+
+//        ((MainActivity) getActivity()).setCustomView(eventDetail.getName(),R.color.action_bar_color,R.color.black);
+        ((MainActivity) getActivity()).getSupportActionBar().setTitle(eventDetail.getName());
 
         btnInterested.setOnClickListener(new View.OnClickListener() {
             @Override

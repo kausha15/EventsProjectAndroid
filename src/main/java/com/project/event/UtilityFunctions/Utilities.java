@@ -61,6 +61,7 @@ public class Utilities {
             }
         } catch (Exception e) {
             // Could provide a more explicit error message for IOException or IllegalStateException
+            e.printStackTrace();
             getRequest.abort();
 
         } finally {

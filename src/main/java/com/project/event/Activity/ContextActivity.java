@@ -15,7 +15,14 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
+import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.utils.StorageUtils;
 import com.project.event.R;
+
+import java.io.File;
 
 public class ContextActivity extends ActionBarActivity {
 
@@ -69,7 +76,16 @@ public class ContextActivity extends ActionBarActivity {
 
         super.onCreate(savedInstanceState);
 
+        File cacheDir = StorageUtils.getCacheDirectory(this);
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this).
+                memoryCache(new LruMemoryCache(2 * 1024 * 1024)).memoryCacheSize(2 * 1024 * 1024).
+                diskCache(new UnlimitedDiscCache(cacheDir)) // default
+                .diskCacheSize(50 * 1024 * 1024)
+                .diskCacheFileCount(100).build();
 
+
+
+        ImageLoader.getInstance().init(config);
 
         if(getResources().getBoolean(R.bool.portrait_only)){
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);

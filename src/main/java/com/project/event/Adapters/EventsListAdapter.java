@@ -10,10 +10,11 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.project.event.Activity.MainActivity;
 import com.project.event.R;
 import com.project.event.UtilityFunctions.Logger;
-import com.project.event.UtilityFunctions.Utilities;
 import com.project.event.fragments.SingleEventFragment;
 import com.project.event.pojo.EventDetail;
 
@@ -25,10 +26,14 @@ public class EventsListAdapter extends BaseAdapter {
     private ArrayList<EventDetail> eventsList;
     private LayoutInflater inflater;
     private Context context;
+    private ImageLoader imageLoader;
+    private DisplayImageOptions options;
 
     public EventsListAdapter(Context context, ArrayList<EventDetail> eventsList){
         this.eventsList = eventsList;
         this.context = context;
+        imageLoader = ImageLoader.getInstance();
+        options = new DisplayImageOptions.Builder().cacheOnDisk(true).cacheInMemory(true).showImageForEmptyUri(R.drawable.ic_launcher).showImageOnLoading(R.drawable.ic_launcher).showImageOnFail(R.drawable.ic_launcher).build();
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -60,13 +65,14 @@ public class EventsListAdapter extends BaseAdapter {
             holder.cvEvent = (CardView) crow.findViewById(R.id.cvEvent);
             holder.ivEventImage = (ImageView) crow.findViewById(R.id.ivEventImage);
             holder.tvEventName = (TextView) crow.findViewById(R.id.tvEventName);
-
+            crow.setTag(holder);
         }else{
             holder = (ViewHolder) crow.getTag();
         }
         if(!eventDetail.getImageUrl().equals("")){
-            holder.ivEventImage.setImageBitmap(Utilities.downloadBitmap(eventDetail.getImageUrl()));
+            imageLoader.displayImage(eventDetail.getImageUrl(),holder.ivEventImage,options);
         }
+
         holder.tvEventName.setText(eventDetail.getName());
 
         holder.cvEvent.setOnClickListener(new View.OnClickListener() {
